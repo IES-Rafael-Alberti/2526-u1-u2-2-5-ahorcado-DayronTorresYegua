@@ -8,10 +8,10 @@ Práctica de programación que evalúa:
 - Sentencias iterativas
 - Manipulación de strings
 
-Autor: [Nombre del alumno]
-Fecha: [Fecha]
+Autor: [Dayron Torres Yegua]
+Fecha: [6/11/2025]
 """
-
+import requests
 
 def limpiar_pantalla():
     """
@@ -29,13 +29,32 @@ def solicitar_palabra():
     Returns:
         str: La palabra a adivinar en mayúsculas
     """
-    # TODO: Implementar la función
     # - Usar un bucle while para repetir hasta que la palabra sea válida
     # - Verificar que tenga al menos 5 caracteres (len())
     # - Verificar que solo contenga letras (isalpha())
     # - Convertir a mayúsculas (upper())
-    pass
+    url = "https://random-words-api.vercel.app/word/spanish"
 
+    palabra = ""
+
+    while len(palabra) < 5:
+        # Hacer la solicitud GET dentro del ciclo para obtener una nueva palabra cada vez
+        response = requests.get(url)
+        if response.status_code == 200:
+            data = response.json()
+            palabra = data[0]["word"]
+            if len(palabra) < 5:
+                palabra = ""  # Vaciar para forzar otra iteración si palabra tiene menos de 5 letras
+        else:
+            print("Error al obtener la palabra aleatoria")
+
+    return palabra.upper()
+
+def aniadir_letras_usadas(letra:str) -> list:
+    
+    letras_usadas = []
+    letras_usadas.append(letra)
+    return letras_usadas
 
 def solicitar_letra(letras_usadas):
     """
@@ -48,14 +67,19 @@ def solicitar_letra(letras_usadas):
     Returns:
         str: La letra introducida en mayúsculas
     """
-    # TODO: Implementar la función
     # - Usar un bucle while para repetir hasta que la letra sea válida
     # - Verificar que sea solo un carácter (len() == 1)
     # - Verificar que sea una letra (isalpha())
     # - Verificar que no esté en letras_usadas (operador 'in')
     # - Convertir a mayúsculas (upper())
-    pass
-
+    letra = None
+    
+    while not letra:
+        letra = input("Introduce una letra: ")
+        if len(letra) == 1 and letra.isalpha() and not letra in letras_usadas:
+            return letra.upper()
+        else:
+            letra = None
 
 def mostrar_estado(palabra_oculta, intentos, letras_usadas):
     """
@@ -70,7 +94,7 @@ def mostrar_estado(palabra_oculta, intentos, letras_usadas):
     # - Imprimir intentos restantes
     # - Imprimir la palabra con espacios entre caracteres
     # - Imprimir las letras usadas
-    pass
+    print(intentos)
 
 
 def actualizar_palabra_oculta(palabra, palabra_oculta, letra):
@@ -90,7 +114,7 @@ def actualizar_palabra_oculta(palabra, palabra_oculta, letra):
     # - Usar enumerate() para obtener índice y carácter
     # - Si el carácter coincide con la letra, reemplazar en palabra_oculta
     # - Puedes convertir palabra_oculta a lista, modificar y volver a string
-    pass
+    for letras in enumerate(palabra)
 
 
 def jugar():
@@ -103,10 +127,10 @@ def jugar():
     INTENTOS_MAXIMOS = 5
     
     # TODO: Solicitar la palabra al jugador 1
-    # palabra = solicitar_palabra()
+    palabra = solicitar_palabra()
     
     # TODO: Limpiar la pantalla para que el jugador 2 no vea la palabra
-    # limpiar_pantalla()
+    limpiar_pantalla()
     
     # TODO: Inicializar variables del juego
     # - palabra_oculta: string con guiones bajos (ej: "_ _ _ _ _")
