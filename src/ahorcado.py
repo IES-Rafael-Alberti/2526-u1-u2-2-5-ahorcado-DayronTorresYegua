@@ -23,21 +23,35 @@ def limpiar_pantalla():
     """
     print("\n" * 50)
 
-
-def solicitar_palabra() -> str:
+def solicitar_palabra_a_mano() -> str:
     """
-    Solicita una palabra al jugador 1
-    La palabra debe tener mínimo 5 caracteres y solo contener letras
+    Permite al jugador solicitar una palabra a mano
     
     Returns
     -------
     str
-        Una cadena que contiene una palabra a adivinar al azar con al menos 5 letras y en mayúsculas
+        Palabra a adivinar en mayúsculas y con al menos 5 letras
+    """
+    palabra = None
+    while not palabra:
+        palabra = input("Introduce una palabra (mínimo 5 letras): ")
+        if len(palabra) >= 5 and palabra.isalpha():
+            return palabra.upper()
+        else:
+            print("La palabra debe tener al menos 5 letras y solo contener letras.")
+            palabra = None
+
+def solicitar_palabra_api() -> str:
+    """
+    Permite al jugador solicitar una palabra a traves de una api
+    
+    Returns
+    -------
+    str
+        Palabra a adivinar en mayúsculas y con al menos 5 letras
     """
     url = "https://random-words-api.vercel.app/word/spanish"
-
     palabra = ""
-
     while len(palabra) < 5:
         response = requests.get(url)
         if response.status_code == 200:
@@ -47,8 +61,26 @@ def solicitar_palabra() -> str:
                 palabra = ""
         else:
             print("Error al obtener la palabra aleatoria")
-
+            return solicitar_palabra_api()
     return palabra.upper()
+
+def solicitar_palabra() -> str:
+    """
+    Permite elegir entre solicitar palabra a mano o solictarla mediante la API.
+    
+    Returns
+    -------
+    str
+        Palabra a adivinar en funcion de si se elige palabra a mano o palabra mediante API
+    """
+    opcion = None
+    while opcion not in ['1', '2']:
+        opcion = input("Elige opción:\n1. Introducir palabra manualmente\n2. Usar palabra generada por API\nOpción (1/2): ")
+
+    if opcion == '1':
+        return solicitar_palabra_a_mano()
+    else:
+        return solicitar_palabra_api()
 
 def ocultar_palabra(palabra:str) -> str:
     """ 
@@ -191,11 +223,6 @@ def jugar():
             intentos -= 1
             print(f"Error, la letra {letra} no esta en la palabra.")
             
-            
-    if not juego_terminado:
-        print(f"¡Has perdido! Se te acabaron los intentos.")
-        print(f"La palabra era: {palabra}")
-    
     if juego_terminado:
         print(f"Enhorabuena ganaste\nLa palabra era {palabra}")
     else:

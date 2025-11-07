@@ -150,3 +150,15 @@ Profesor: revilofe
 
 ## Licencia
 Material educativo para uso académico
+
+
+## Capturas debuggeo
+
+- Mirando para corregir error de que al actualizar la palabra oculta no devolvia la palabra con las letras acertadas
+
+  ![alt text](assets/debbug.png)
+
+  https://github.com/IES-Rafael-Alberti/2526-u1-u2-2-5-ahorcado-DayronTorresYegua/blob/05ee6077eef2ebcf155b17d405b49edf96bebd7f/src/ahorcado.py#L134-L158
+
+## Documentacion
+
