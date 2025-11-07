@@ -73,11 +73,14 @@ def solicitar_palabra() -> str:
     str
         Palabra a adivinar en funcion de si se elige palabra a mano o palabra mediante API
     """
+    OPCION_A_MANO = '1'
+    OPCION_API = '2'
+    
     opcion = None
-    while opcion not in ['1', '2']:
+    while opcion == OPCION_A_MANO or opcion == OPCION_API:
         opcion = input("Elige opción:\n1. Introducir palabra manualmente\n2. Usar palabra generada por API\nOpción (1/2): ")
 
-    if opcion == '1':
+    if opcion == OPCION_A_MANO:
         return solicitar_palabra_a_mano()
     else:
         return solicitar_palabra_api()
