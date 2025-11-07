@@ -1,134 +1,98 @@
 === EJEMPLO DE EJECUCIÓN DEL JUEGO DEL AHORCADO ===
-
+=== EJEMPLO OPCION A MANO ===
 === JUEGO DEL AHORCADO ===
 
-Jugador 1: Introduce la palabra a adivinar (mínimo 5 letras): 
-> casa
-Error: La palabra debe tener al menos 5 caracteres.
-
-Jugador 1: Introduce la palabra a adivinar (mínimo 5 letras): 
-> 12345
-Error: La palabra solo puede contener letras.
-
-Jugador 1: Introduce la palabra a adivinar (mínimo 5 letras): 
-> python
-
-[Limpiando pantalla...]
+Elige opción:
+1. Introducir palabra manualmente
+2. Usar palabra generada por API
+Opción (1/2): 1
+Introduce una palabra (mínimo 5 letras): fruta
 
 Jugador 2: ¡Adivina la palabra!
 
-Intentos restantes: 5
-Palabra: _ _ _ _ _ _
+La palabra oculta es: _ _ _ _ _
+Numero de intentos: 5
 Letras usadas: []
+Introduce una letra: f
+La letra F esta en la palabra
+La palabra oculta es: F _ _ _ _
+Numero de intentos: 5
+Letras usadas: ['F']
+Introduce una letra: f
+Debe introducir una letra valida y que no este en letras usadas.
+Introduce una letra: a
+La letra A esta en la palabra
+La palabra oculta es: F _ _ _ A
+Numero de intentos: 5
+Letras usadas: ['F', 'A']
+Introduce una letra: o
+Error, la letra O no esta en la palabra.
+La palabra oculta es: F _ _ _ A
+Numero de intentos: 4
+Letras usadas: ['F', 'A', 'O']
+Introduce una letra: u
+La letra U esta en la palabra
+La palabra oculta es: F _ U _ A
+Numero de intentos: 4
+Letras usadas: ['F', 'A', 'O', 'U']
+Introduce una letra: r 
+La letra R esta en la palabra
+La palabra oculta es: F R U _ A
+Numero de intentos: 4
+Letras usadas: ['F', 'A', 'O', 'U', 'R']
+Introduce una letra: p
+Error, la letra P no esta en la palabra.
+La palabra oculta es: F R U _ A
+Numero de intentos: 3
+Letras usadas: ['F', 'A', 'O', 'U', 'R', 'P']
+Introduce una letra: t
+La letra T esta en la palabra
+Enhorabuena ganaste
+La palabra era FRUTA
 
-Introduce una letra: A
-¡Letra incorrecta!
+¿Quieres jugar otra vez? (s/n): 
 
-Intentos restantes: 4
-Palabra: _ _ _ _ _ _
-Letras usadas: ['A']
-
-Introduce una letra: E
-¡Letra incorrecta!
-
-Intentos restantes: 3
-Palabra: _ _ _ _ _ _
-Letras usadas: ['A', 'E']
-
-Introduce una letra: P
-¡Bien! La letra P está en la palabra.
-
-Intentos restantes: 3
-Palabra: P _ _ _ _ _
-Letras usadas: ['A', 'E', 'P']
-
-Introduce una letra: Y
-¡Bien! La letra Y está en la palabra.
-
-Intentos restantes: 3
-Palabra: P Y _ _ _ _
-Letras usadas: ['A', 'E', 'P', 'Y']
-
-Introduce una letra: T
-¡Bien! La letra T está en la palabra.
-
-Intentos restantes: 3
-Palabra: P Y T _ _ _
-Letras usadas: ['A', 'E', 'P', 'Y', 'T']
-
-Introduce una letra: H
-¡Bien! La letra H está en la palabra.
-
-Intentos restantes: 3
-Palabra: P Y T H _ _
-Letras usadas: ['A', 'E', 'P', 'Y', 'T', 'H']
-
-Introduce una letra: O
-¡Bien! La letra O está en la palabra.
-
-Intentos restantes: 3
-Palabra: P Y T H O _
-Letras usadas: ['A', 'E', 'P', 'Y', 'T', 'H', 'O']
-
-Introduce una letra: N
-¡Bien! La letra N está en la palabra.
-
-Intentos restantes: 3
-Palabra: P Y T H O N
-Letras usadas: ['A', 'E', 'P', 'Y', 'T', 'H', 'O', 'N']
-
-¡FELICIDADES! Has adivinado la palabra: PYTHON
-
-
-=== EJEMPLO DE EJECUCIÓN CON DERROTA ===
-
+=== EJEMPLO OPCION API ===
 === JUEGO DEL AHORCADO ===
 
-Jugador 1: Introduce la palabra a adivinar (mínimo 5 letras): 
-> PROGRAMACION
-
-[Limpiando pantalla...]
+Elige opción:
+1. Introducir palabra manualmente
+2. Usar palabra generada por API
+Opción (1/2): 2
 
 Jugador 2: ¡Adivina la palabra!
 
-Intentos restantes: 5
-Palabra: _ _ _ _ _ _ _ _ _ _ _ _
+La palabra oculta es: _ _ _ _ _
+Numero de intentos: 5
 Letras usadas: []
+Introduce una letra: f
+Error, la letra F no esta en la palabra.
+La palabra oculta es: _ _ _ _ _
+Numero de intentos: 4
+Letras usadas: ['F']
+Introduce una letra: a
+Error, la letra A no esta en la palabra.
+La palabra oculta es: _ _ _ _ _
+Numero de intentos: 3
+Letras usadas: ['F', 'A']
+Introduce una letra: e
+La letra E esta en la palabra
+La palabra oculta es: _ E _ _ E
+Numero de intentos: 3
+Letras usadas: ['F', 'A', 'E']
+Introduce una letra: i
+Error, la letra I no esta en la palabra.
+La palabra oculta es: _ E _ _ E
+Numero de intentos: 2
+Letras usadas: ['F', 'A', 'E', 'I']
+Introduce una letra: o
+Error, la letra O no esta en la palabra.
+La palabra oculta es: _ E _ _ E
+Numero de intentos: 1
+Letras usadas: ['F', 'A', 'E', 'I', 'O']
+Introduce una letra: u
+Error, la letra U no esta en la palabra.
+Perdiste
+La palabra era LECHE
 
-Introduce una letra: E
-¡Letra incorrecta!
-
-Intentos restantes: 4
-Palabra: _ _ _ _ _ _ _ _ _ _ _ _
-Letras usadas: ['E']
-
-Introduce una letra: S
-¡Letra incorrecta!
-
-Intentos restantes: 3
-Palabra: _ _ _ _ _ _ _ _ _ _ _ _
-Letras usadas: ['E', 'S']
-
-Introduce una letra: T
-¡Letra incorrecta!
-
-Intentos restantes: 2
-Palabra: _ _ _ _ _ _ _ _ _ _ _ _
-Letras usadas: ['E', 'S', 'T']
-
-Introduce una letra: L
-¡Letra incorrecta!
-
-Intentos restantes: 1
-Palabra: _ _ _ _ _ _ _ _ _ _ _ _
-Letras usadas: ['E', 'S', 'T', 'L']
-
-Introduce una letra: D
-¡Letra incorrecta!
-
-Intentos restantes: 0
-Palabra: _ _ _ _ _ _ _ _ _ _ _ _
-Letras usadas: ['E', 'S', 'T', 'L', 'D']
-
-¡GAME OVER! Te has quedado sin intentos.
-La palabra era: PROGRAMACION
+¿Quieres jugar otra vez? (s/n):
